@@ -4,8 +4,8 @@ import { addFriend } from "../../actions";
 
 
 // const AddFriends = ( { guardarAmigo }) => {
-const AddFriends = ( { addFriend }) => {
-    const [input, setInput] = React.useState({
+const AddFriends = ( { addFriend , amigos}) => {
+    const [amigo, setAmigo] = React.useState({
         name: '',
         phone:'',
         email:''
@@ -13,15 +13,19 @@ const AddFriends = ( { addFriend }) => {
 
     function hadleSumbit(e){
         e.preventDefault();
-
-        console.log(addFriend(input))
+        addFriend(amigo)
+        setAmigo({
+            name: '',
+            phone:'',
+            email:''
+        })
 
     }
 
     function handleOnChange(event) {
 
-        setInput({
-            ...input,
+        setAmigo({
+            ...amigo,
             [event.target.name] : event.target.value
         })
     }
@@ -29,15 +33,15 @@ const AddFriends = ( { addFriend }) => {
     return(
         <form className="form-floating mt-5 ms-5 me-5" onSubmit={hadleSumbit}>
             <div className="form-floating mb-3">
-                <input value={input.name} name='name' type="text" className="form-control" id="name" placeholder="Friend name" onChange={handleOnChange}/>
+                <input value={amigo.name} name='name' type="text" className="form-control" id="name" placeholder="Friend name" onChange={handleOnChange}/>
                 <label htmlFor="name">Friend name</label>
             </div>
             <div className="form-floating mb-3">
-                <input value={input.phone} name='phone' type="text" className="form-control" id="phone" placeholder="Friend phone" onChange={handleOnChange} />
+                <input value={amigo.phone} name='phone' type="text" className="form-control" id="phone" placeholder="Friend phone" onChange={handleOnChange} />
                 <label htmlFor="phone">phone</label>
             </div>
             <div className="form-floating mb-3">
-                <input value={input.email} name='email' type="email" className="form-control" id="email" placeholder="name@example.com" onChange={handleOnChange}/>
+                <input value={amigo.email} name='email' type="email" className="form-control" id="email" placeholder="name@example.com" onChange={handleOnChange}/>
                 <label htmlFor="email">Email address</label>
             </div>
             <div className="col-auto">
@@ -45,6 +49,12 @@ const AddFriends = ( { addFriend }) => {
             </div>
         </form>
     )
+}
+
+const mapStateToProps = (state) => {
+    return {
+        amigos : state
+    }
 }
 
 // (null,{ addFriend })
@@ -59,4 +69,4 @@ const AddFriends = ( { addFriend }) => {
 
 // export default connect(null,mapDispatchToProps )(AddFriends)
 
-export default connect(null, { addFriend } )(AddFriends)
+export default connect(mapStateToProps, { addFriend } )(AddFriends)
