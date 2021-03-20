@@ -1,5 +1,6 @@
 import NavBar from "./components/Nav/NavBar";
 import AddFriends from "./components/addFriends/AddFriends";
+import Home from "./components/Home/Home"
 
 // import { addFriend } from "./actions/index";
 
@@ -10,6 +11,7 @@ function App() {
     <>
       <NavBar />
       <Route exact path='/add' component={AddFriends}/>
+      <Route exact path='/' component={Home}/>
         {/*<AddFriends addFriend={addFriend}/>*/}
     </>
   );
