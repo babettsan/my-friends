@@ -1,9 +1,18 @@
-
+import React from 'react';
 
 const Addusers = () => {
+    const [input, setInput] = React.useState({
+        name: '',
+        phone:'',
+        email:''
+    });
+
+    function hadleSumbit(e){
+        e.preventDefault()
+    }
 
     return(
-        <form className="form-floating mt-5 ms-5 me-5">
+        <form className="form-floating mt-5 ms-5 me-5" onSubmit={hadleSumbit}>
             <div className="form-floating mb-3">
                 <input name='name' type="text" className="form-control" id="name" placeholder="Friend name"/>
                 <label htmlFor="name">Friend name</label>
