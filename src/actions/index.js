@@ -51,7 +51,7 @@ export const deleteFriend = (id) =>{
 export const blockFriend = (id) =>{
 
     return {
-        type: DEACTIVATE_FRIEND,
+        type: BLOCK_FRIEND,
         payload: id
     }
 

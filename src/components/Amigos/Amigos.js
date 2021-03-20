@@ -12,7 +12,7 @@ const Amigos = ({ state, amigos }) => {
                 <ul className="list-group list-group-flush">
                     {
                         amigosFilter.map(amigo =>
-                            <Link to={`/edit/${amigo.id}`}>{amigo.name}</Link>
+                            <Link key={amigo.id} to={`/edit/${amigo.id}`}><li className="list-group-item">{amigo.name}</li></Link>
                             // ejemplo: localhost:3000/edit/1
 
                         )
