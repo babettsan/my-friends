@@ -1,6 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { addFriend } from "../../actions";
 
-const Addusers = () => {
+
+// const AddFriends = ( { guardarAmigo }) => {
+const AddFriends = ( { addFriend }) => {
     const [input, setInput] = React.useState({
         name: '',
         phone:'',
@@ -9,13 +13,15 @@ const Addusers = () => {
 
     function hadleSumbit(e){
         e.preventDefault();
+
+        console.log(addFriend(input))
+
     }
 
     function handleOnChange(event) {
 
         setInput({
             ...input,
-            //name : 'pedro'
             [event.target.name] : event.target.value
         })
     }
@@ -41,4 +47,16 @@ const Addusers = () => {
     )
 }
 
-export default Addusers;
+// (null,{ addFriend })
+
+// export default AddFriends;
+
+// const mapDispatchToProps = (dispatch)=>{
+//     return {
+//         guardarAmigo: friend => dispatch(addFriend(friend))
+//     }
+// }
+
+// export default connect(null,mapDispatchToProps )(AddFriends)
+
+export default connect(null, { addFriend } )(AddFriends)

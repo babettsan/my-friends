@@ -1,5 +1,7 @@
 import NavBar from "./components/Nav/NavBar";
-import Addusers from "./components/addusers/AddUsers";
+import AddFriends from "./components/addFriends/AddFriends";
+
+// import { addFriend } from "./actions/index";
 
 import { Route } from 'react-router-dom'
 
@@ -7,7 +9,8 @@ function App() {
   return (
     <>
       <NavBar />
-      <Route exact path='/add' component={Addusers}/>
+      <Route exact path='/add' component={AddFriends}/>
+        {/*<AddFriends addFriend={addFriend}/>*/}
     </>
   );
 }
